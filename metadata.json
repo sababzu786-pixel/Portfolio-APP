@@ -1,0 +1,9 @@
+{
+  "name": "Copy of CreativePro AI Portfolio & Studio",
+  "description": "A high-performance portfolio application integrated with advanced AI tools for SEO content writing and digital asset creation (images and video) powered by Gemini.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
