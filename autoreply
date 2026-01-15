@@ -1,0 +1,18 @@
+function sendAutoReplies() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("SEOTracker");
+  const data = sheet.getDataRange().getValues();
+  const emailCol = 1; // Assuming email is in column A (index 0)
+  const replyCol = data[0].length + 1;
+
+  for (let i = 1; i < data.length; i++) {
+    const email = data[i][emailCol];
+    const replied = data[i][replyCol - 1];
+
+    if (email && !replied) {
+      GmailApp.sendEmail(email, "Thanks for submitting your SEO task!", 
+        "Hello,\n\nWe’ve received your SEO task and it is now under review.\n\nRegards,\nTeam");
+
+      sheet.getRange(i + 1, replyCol).setValue("Replied");
+    }
+  }
+}
